@@ -5,6 +5,15 @@ ag = '''
 # https://www.kaggle.com/colinmorris/loops-and-list-comprehensions
 '''
 
+ToDo_ag = '''
+# 
+#  utilizar pop para eliminar de la lista y continuar de forma ascendente
+# 
+# 
+# 
+# 
+'''
+
 indice = []
 mensaje = []
 palabras = []
@@ -82,7 +91,5 @@ recorrePalabras2()
 s = ' '.join(mensaje)
 #decifra(s)
 print s
-
-
 
 print "fin"
