@@ -82,3 +82,7 @@ recorrePalabras2()
 s = ' '.join(mensaje)
 #decifra(s)
 print s
+
+
+
+print "fin"
