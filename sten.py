@@ -41,12 +41,17 @@ def decifra(data):                                      ## print all the upperca
     return True
 
 def recorrePalabras(b):                                 ## create a list with indexes for word to be replaced un upperCase, one at a time
+    indiceNuevo = -1
     for palabra in lista:
+        #print palabra, lista.index(palabra)
         for letras in letrasPorEnviar:
-            if letras in palabra:                           
-                indice.append(lista.index(palabra))
+            indiceActual = lista.index(palabra)
+            #print palabra, indiceActual
+            if letras in palabra and indiceActual > indiceNuevo:                           
+                indiceNuevo = lista.index(palabra)     ## indice.append(lista.index(palabra))
+                indice.append(indiceNuevo)
                 palabras.append(palabra)
-                letrasPorEnviar.pop(0)                      
+                letrasPorEnviar.pop(0)
             break
 
 def recorrePalabras2():
@@ -65,15 +70,17 @@ def recorrePalabras2():
 
 
                                                         # Main
-letrasPorEnviar = splitEnLetras(enviar)                 ## enviar:"holanda" ...['h', 'o', 'l', 'a', 'n', 'd', 'a']
+                                                        ## Fase 1
+
 lista = msg.lower().split()                             ## msg:Lorem ipsum dolor sit amet, ...['lorem', 'ipsum', 'dolor', 'sit', 'amet,', 'consectetur', 
+letrasPorEnviar = splitEnLetras(enviar)                 ## enviar:"holanda" ...['h', 'o', 'l', 'a', 'n', 'd', 'a']
 recorrePalabras(0)                                      ## indice: [112, 115, 125, 67, 12, 131, 133] 
                                                         ## palabras: ['nibh', 'orci', 'ridiculus', 'ante', 'elementum', 'id', 'vitae,']
 print "done:", indice, palabras                         ## done: [112, 115, 125, 67, 12, 131, 133] ['nibh', 'orci', 'ridiculus', 'ante', 'elementum', 'id', 'vitae,']
                                                         ## la posicion del indice debe ser siempre superior al anterior para que sea de corma cronologica
 
 
-
+                                                        ## Fase 2
 #mensaje = lista
 #lista = palabras
 #letrasPorEnviar = splitEnLetras(enviar)
