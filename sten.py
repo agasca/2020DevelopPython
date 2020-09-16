@@ -38,7 +38,8 @@ def decifra(data):                                      ## print all the upperca
     for char in data:
         if char.isupper():
             print char, 
-    return True
+    print "\n"
+    return 101
 
 def recorrePalabras(b):                                 ## create a list with indexes for word to be replaced un upperCase, one at a time
     indiceNuevo = -1
@@ -53,6 +54,7 @@ def recorrePalabras(b):                                 ## create a list with in
                 palabras.append(palabra)
                 letrasPorEnviar.pop(0)
             break
+    return 100
 
 def recorrePalabras2():
     i = 0
@@ -61,40 +63,29 @@ def recorrePalabras2():
         #print letrasPorEnviar[i]                        ## vh
         #print i, indice[i], mensaje[indice[i]]
         pp = palabra.replace(letrasPorEnviar[i], 
-                            letrasPorEnviar[i].upper()) ## nibH
+                            letrasPorEnviar[i].upper(),1) ## nibH
         mensaje[indice[i]] = pp
-        print pp, mensaje[indice[i]], \
-                mensaje[12], mensaje[112]
+        #print pp, mensaje[indice[i]], \
+        #        mensaje[12], mensaje[112]
         i+=1
     #print mensaje
-
-
                                                         # Main
                                                         ## Fase 1
 
 lista = msg.lower().split()                             ## msg:Lorem ipsum dolor sit amet, ...['lorem', 'ipsum', 'dolor', 'sit', 'amet,', 'consectetur', 
 letrasPorEnviar = splitEnLetras(enviar)                 ## enviar:"holanda" ...['h', 'o', 'l', 'a', 'n', 'd', 'a']
-recorrePalabras(0)                                      ## indice: [112, 115, 125, 67, 12, 131, 133] 
+print recorrePalabras(0), "\n"                          ## indice: [112, 115, 125, 67, 12, 131, 133] 
                                                         ## palabras: ['nibh', 'orci', 'ridiculus', 'ante', 'elementum', 'id', 'vitae,']
-print "done:", indice, palabras                         ## done: [112, 115, 125, 67, 12, 131, 133] ['nibh', 'orci', 'ridiculus', 'ante', 'elementum', 'id', 'vitae,']
+#print "done:", indice, palabras                         ## done: [112, 115, 125, 67, 12, 131, 133] ['nibh', 'orci', 'ridiculus', 'ante', 'elementum', 'id', 'vitae,']
                                                         ## la posicion del indice debe ser siempre superior al anterior para que sea de corma cronologica
 
-
                                                         ## Fase 2
-#mensaje = lista
-#lista = palabras
-#letrasPorEnviar = splitEnLetras(enviar)
-#recorrePalabras2()
+mensaje = lista
+lista = palabras
+letrasPorEnviar = splitEnLetras(enviar)
+recorrePalabras2()
+s = ' '.join(mensaje)
 
-#por alguna razon al dar replace se cambian todas las palabras
-#print mensaje[12], mensaje[115]
-#mensaje[12]='elementum'
-#print mensaje[12], mensaje[115]
-#print mensaje
-
-#print ' '.join(mensaje)
-#s = ' '.join(mensaje)
-#decifra(s)
-#print s
-
+print decifra(s), "\n"
+print s, "\n"
 print "fin"
